@@ -2,7 +2,11 @@
 created: 2026-02-23
 last_updated: 2026-02-23
 graphrag_extracted: true
+<<<<<<< HEAD
 tags: [ #protocol, #trading, #mathematics, #psychology, #variance-drag, #expected-value ]
+=======
+tags: ["protocol", "trading", "mathematics", "psychology", "variance-drag", "expected-value"]
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 ---
 
 # Protocol 367: High Win-Rate Supremacy
@@ -66,9 +70,15 @@ High WR / Low RR is invincible **if and only if** the maximum loss is structural
 
 ## Cross-Links
 
+<<<<<<< HEAD
 - [Protocol 46: Trading Constraints](file:///Users/winstonkoh/Desktop/Project Athena/.agent/skills/protocols/trading/46-trading-methodology.md)
 - [Protocol 243: The Delulu Gap](file:///Users/winstonkoh/Desktop/Project Athena/Athena-Public/examples/protocols/decision/243-delulu-gap-heuristic.md)
 - [Protocol 193: Ergodicity Check](file:///Users/winstonkoh/Desktop/Project Athena/Athena-Public/examples/protocols/decision/193-ergodicity-check.md)
+=======
+- [Protocol 46: Trading Constraints](<!-- Private: .agent/skills/protocols/ --> trading/46-trading-methodology.md)
+- [Protocol 243: The Delulu Gap](../decision/243-delulu-gap-heuristic.md)
+- [Protocol 193: Ergodicity Check](../decision/193-ergodicity-check.md)
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 
 ## 5. Mathematical Proof: The Variance Collapse
 
@@ -76,14 +86,24 @@ Comparing two positive Expected Value (EV) systems on a simplified Roulette mode
 
 ### System A: The Grinder (40% Win Rate, 2:1 Payout)
 
+<<<<<<< HEAD
 * **EV**: +20.0% edge
+=======
+- **EV**: +20.0% edge
+
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 - **Variance ($V$)**: 2.160
 - **Kelly Sizing (Max Safe Bet)**: 10.0% (Half-Kelly: 5.0%)
 - **Physics**: Despite a massive EV, losing 60% of outcomes guarantees long drawdown sequences. Variance drag forces small bet sizing to avoid ruin.
 
 ### System B: The High WR Supremacy (75% Win Rate, 2:3 Payout)
 
+<<<<<<< HEAD
 * **EV**: +25.0% edge
+=======
+- **EV**: +25.0% edge
+
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 - **Variance ($V$)**: 0.520
 - **Kelly Sizing (Max Safe Bet)**: 37.5% (Half-Kelly: 18.75%)
 - **Physics**: Scaling the win-rate (while sacrificing the payout size) collapses the Variance by exactly >4X. Because variance acts as a destructive square in compounding equations ($V^2/2$), **minimizing variance is more important than maximizing payout ratios**. This collapse allows for significantly larger safe position sizing while aggressively smoothing the equity curve.

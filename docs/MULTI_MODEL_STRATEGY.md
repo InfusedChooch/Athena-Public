@@ -27,7 +27,11 @@ Athena is **free and open source**. You only pay for your AI subscription. But t
 | **Claude Opus 4.6** | Deep reasoning, code quality, nuanced analysis | Coding, architecture, verification |
 | **Gemini 3.1 Pro** | Broad knowledge, fast synthesis, strong planning | General work, research, planning |
 | **Gemini 3 Flash** | Speed, low cost | Session management (`/start`, `/end`), quick lookups |
+<<<<<<< HEAD
 | **GPT-5.2** | Alternative perspective, good at creative tasks | Trilateral tiebreaker, creative work |
+=======
+| **GPT-5.3** | Alternative perspective, good at creative tasks | Trilateral tiebreaker, creative work |
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 
 > [!TIP]
 > **The cheapest path to full Athena capability is a single $20/mo subscription** (Claude Pro or Google AI Pro). You don't need multiple subscriptions — one frontier model handles everything. Multiple subs unlock the trilateral feedback loop for high-stakes decisions.
@@ -59,7 +63,11 @@ Model B (e.g., Claude Opus)    →  Opinion 2
                                     ↓
                               Conflict detected?
                                     ↓
+<<<<<<< HEAD
 Model C (e.g., GPT-5.2, Llama) →  Tiebreaker / Synthesis
+=======
+Model C (e.g., GPT-5.3, Llama) →  Tiebreaker / Synthesis
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 ```
 
 **When to trigger**:

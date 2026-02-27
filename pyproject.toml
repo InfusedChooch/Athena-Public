@@ -3,14 +3,36 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
+<<<<<<< HEAD
 name = "athena-sdk"
 version = "9.2.5"
 description = "Athena Bionic OS SDK"
+=======
+name = "athena-agent"
+version = "9.2.7"
+description = "Athena Bionic OS — The Linux Distro for AI Agents. Model-agnostic, local-first, sovereign."
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 authors = [
     { name = "Winston Koh", email = "winstonkoh87@gmail.com" }
+]
+keywords = [
+    "ai-agent", "llm", "cognitive-os", "memory-bank",
+    "model-agnostic", "ai-framework", "developer-tools"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = [
     "python-dotenv>=1.0.0",
@@ -23,9 +45,17 @@ dependencies = [
     "flashrank>=0.2.9",
     "sentence-transformers>=2.2.0",
     "torch>=2.0.0",
-    "diskcache>=5.6.3",
-    "watchdog>=3.0.0"
+    "diskcache>=5.6.3"
 ]
+
+[project.scripts]
+athena = "athena.__main__:main"
+
+[project.urls]
+Homepage = "https://winstonkoh87.com/athena/"
+Repository = "https://github.com/winstonkoh87/Athena-Public"
+Documentation = "https://github.com/winstonkoh87/Athena-Public#readme"
+Changelog = "https://github.com/winstonkoh87/Athena-Public/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 dev = [
@@ -49,4 +79,5 @@ ignore = ["E501", "B008"]
 known-first-party = ["athena"]
 
 [tool.black]
+line-length = 88
 target-version = ["py310"]

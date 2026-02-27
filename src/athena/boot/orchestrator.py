@@ -86,6 +86,14 @@ def main():
     # Phase 4: Session Creation
     session_id = MemoryLoader.create_session()
 
+    # Phase 4.1: Record session start reference (for passive observation)
+    try:
+        from athena.auditors.audit_observations import record_start_ref
+
+        record_start_ref()
+    except Exception:
+        pass  # Non-critical — observations are optional
+
     # Phase 5: Audit (Reset)
     try:
         sys.path.insert(0, str(PROJECT_ROOT / ".agent" / "scripts"))
@@ -98,6 +106,10 @@ def main():
     # Phase 6 & 7: Optimized Context & Semantic Activation (Parallel)
     from concurrent.futures import ThreadPoolExecutor
     from athena.core.health import HealthCheck
+    from athena.boot.loaders.context_summaries import (
+        generate_summaries,
+        display_summary_status,
+    )
 
     def run_health_check_wrapper():
         if not HealthCheck.run_all():
@@ -105,6 +117,16 @@ def main():
                 f"{RED}⚠️  System health check failed. Proceeding with caution...{RESET}"
             )
 
+<<<<<<< HEAD
+=======
+    # Tier 0: Pre-computed context summaries (hash-based delta, zero API cost)
+    context_summaries = {}
+
+    def run_context_summaries():
+        nonlocal context_summaries
+        context_summaries = generate_summaries()
+
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
     with ThreadPoolExecutor(max_workers=8) as executor:
         # 1. Non-blocking context capture
         executor.submit(MemoryLoader.capture_context)
@@ -124,10 +146,31 @@ def main():
         # 6. Prefetch (Moved to background)
         executor.submit(PrefetchLoader.prefetch_hot_files)
 
+<<<<<<< HEAD
+=======
+        # 7. Tier 0: Context Summary Pre-computation (Min-Latency × Max-Effectiveness)
+        executor.submit(run_context_summaries)
+
+>>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
     # Display remaining sync items
     MemoryLoader.display_learnings_snapshot()
     IdentityLoader.display_cognitive_profile()
     IdentityLoader.display_cos_status()
+    display_summary_status(context_summaries)
+
+    # Phase 8: Sidecar Launch (Sovereign Index)
+    try:
+        import subprocess
+
+        sidecar_path = PROJECT_ROOT / ".agent" / "scripts" / "sidecar.py"
+        subprocess.Popen(
+            [sys.executable, str(sidecar_path)],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        print("   🛡️  Sidecar Launched (PID: Independent)")
+    except Exception as e:
+        print(f"   ⚠️  Sidecar Fail: {e}")
 
     # Phase 8: Sidecar Launch (Sovereign Index)
     try:
