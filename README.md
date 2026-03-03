@@ -22,18 +22,26 @@ Platforms forget. Athena doesn't.
 
 [![GitHub Stars](https://img.shields.io/github/stars/winstonkoh87/Athena-Public?style=for-the-badge&logo=github&color=10b981)](https://github.com/winstonkoh87/Athena-Public/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+<<<<<<< HEAD
 [![Version](https://img.shields.io/badge/v9.2.8-10b981?style=for-the-badge&label=Version)](docs/CHANGELOG.md)
 >>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
+=======
+[![Version](https://img.shields.io/badge/v9.3.1-10b981?style=for-the-badge&label=Version)](docs/CHANGELOG.md)
+>>>>>>> 9f9dbbdcc07c9b8b153d42348c22c4025da2c735
 [![Reddit Views](https://img.shields.io/badge/1M+_Views-FF4500?style=for-the-badge&logo=reddit&logoColor=white)](https://www.reddit.com/r/ChatGPT/comments/1r1b3gl/)
 [![Open in Codespaces](https://img.shields.io/badge/Open_in_Codespaces-24292e?style=for-the-badge&logo=github)](https://codespaces.new/winstonkoh87/Athena-Public)
 
 [Quickstart](#-quickstart) · [How It Works](#-how-it-works) · [Docs](docs/GETTING_STARTED.md) · [FAQ](docs/FAQ.md) · [Contributing](CONTRIBUTING.md)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 *Last updated: 24 February 2026*
 =======
 *Last updated: 27 February 2026*
 >>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
+=======
+*Last updated: 03 March 2026*
+>>>>>>> 9f9dbbdcc07c9b8b153d42348c22c4025da2c735
 
 </div>
 
@@ -121,7 +129,7 @@ Kind of. But there's a difference between *remembering your name* and *thinking 
 <details>
 <summary><strong>🧬 Why Thousands of Files?</strong></summary>
 
-Athena's workspace looks unusual — **6,000+ Markdown files** and **1,000+ Python scripts** instead of one big config. **This is deliberate.**
+Athena's workspace looks unusual — **350+ Markdown files** and **600+ Python scripts** out of the box, growing to thousands as your memory compounds. **This is deliberate.**
 
 AI agents don't read files top-to-bottom like humans. They **query** — by filename, semantic search, or tag lookup. Each small file is an **addressable memory node** the agent can retrieve surgically, without loading everything else.
 
@@ -177,19 +185,31 @@ cd Athena-Public
 
 Clone it anywhere you keep projects (e.g. `~/Projects/`). This folder **is** your Athena workspace — your memory, protocols, and config all live here.
 
-### 2. Install the SDK *(optional — enables CLI commands)*
+### 2. Set up a virtual environment *(recommended)*
 
 ```bash
-# Recommended
-uv pip install -e .
+# Create and activate a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate   # macOS / Linux
+# .venv\Scripts\activate    # Windows
+```
 
-# Or with pip
+> [!IMPORTANT]
+> On macOS (Homebrew) and Ubuntu 23.04+, installing packages without a virtual environment will fail with `externally-managed-environment`. The step above prevents this.
+
+### 3. Install the SDK *(optional — enables CLI commands)*
+
+```bash
+# Lightweight install (~30 seconds, no ML dependencies)
 pip install -e .
+
+# Full install (~5–10 min, enables vector search and reranking)
+pip install -e ".[full]"
 ```
 
 > ⚠️ **Don't `pip install athena-cli`** — that's a different, unrelated package. Always install from inside the cloned repo.
 
-### 3. Open the folder in an AI-enabled IDE
+### 4. Open the folder in an AI-enabled IDE
 
 Open the `Athena-Public/` directory as your **workspace root** in one of these editors:
 
@@ -201,7 +221,7 @@ Open the `Athena-Public/` directory as your **workspace root** in one of these e
 > [!NOTE]
 > **"Why do I open the Athena folder instead of my own project?"** — Athena is a *workspace*, not a library you install into another repo. You work *inside* the Athena folder, and it remembers everything across sessions. To work on external projects, reference them from within Athena or use multi-root workspaces in your IDE.
 
-### 4. Boot (in the AI chat panel — not the terminal)
+### 5. Boot (in the AI chat panel — not the terminal)
 
 In your IDE's **AI chat panel** (e.g. Cmd+L in Cursor, the chat sidebar in Antigravity), type:
 
@@ -212,7 +232,7 @@ In your IDE's **AI chat panel** (e.g. Cmd+L in Cursor, the chat sidebar in Antig
 > [!CAUTION]
 > `/start`, `/end`, and `/tutorial` are **AI chat commands** — you type them in the chat window where you talk to the AI, **not** in the terminal. They are slash commands that the AI agent reads and executes.
 
-### 5. First time? Take the guided tour
+### 6. First time? Take the guided tour
 
 ```
 /tutorial
@@ -220,7 +240,7 @@ In your IDE's **AI chat panel** (e.g. Cmd+L in Cursor, the chat sidebar in Antig
 
 This walks you through everything: what Athena is, how it works, builds your profile, and demos the tools (~20 min). Confident users can skip it.
 
-### 6. When you're done
+### 7. When you're done
 
 ```
 /end
@@ -234,6 +254,20 @@ This walks you through everything: what Athena is, how it works, builds your pro
 > [!TIP]
 > See the [full setup guide →](docs/YOUR_FIRST_SESSION.md) for detailed walkthroughs and troubleshooting.
 >>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
+
+<details>
+<summary><strong>🪟 Windows Compatibility (Unicode Errors)</strong></summary>
+
+Athena uses modern terminal outputs (Emojis, Box-Drawing characters) which may cause a `UnicodeEncodeError` on legacy Windows terminals (like `cmd.exe` or older PowerShell versions using `cp1252` encoding).
+
+To resolve this natively without altering the codebase:
+
+1. Use **Windows Terminal** (available in the Microsoft Store).
+2. Set your Python IO encoding to UTF-8 by running:
+   `$env:PYTHONIOENCODING="utf-8"` (PowerShell) or `set PYTHONIOENCODING=utf-8` (Command Prompt).
+3. Alternatively, enable strict UTF-8 globally in Windows: *Settings > Time & Language > Language & Region > Administrative language settings > Change system locale > Check "Beta: Use Unicode UTF-8 for worldwide language support"*.
+
+</details>
 
 ---
 
@@ -294,7 +328,8 @@ Everything you need to turn a generic AI into **your** AI — pre-configured, no
 | Component | What It Does For You |
 |:----------|:---------------------|
 | 🧠 **Core Identity** | Your AI's personality, principles, and boundaries — editable, version-controlled — [template](examples/templates/core_identity_template.md) |
-| 📋 **125+ Protocols** | Ready-made decision frameworks (risk analysis, research, strategy) across 14 categories — [browse](examples/protocols/) |
+| 🧩 **Cognitive Clusters** | Groups related protocols into auto-co-activating bundles — 3 starter clusters included, build your own as you grow — [template](examples/templates/cluster_index_template.md) |
+| 📋 **110+ Protocols** | Ready-made decision frameworks (risk analysis, research, strategy) across 15 categories — [browse](examples/protocols/) |
 | ⚡ **50+ Slash Commands** | One-word triggers: `/start`, `/end`, `/think`, `/research` — [full list](docs/WORKFLOWS.md) |
 | 🔍 **Smart Search** | Finds the right memory even if you describe it vaguely (5 sources, auto-ranked) — [how it works](docs/SEMANTIC_SEARCH.md) |
 | 🔌 **Tool Integration** | Your agent can search, save, and execute scripts on your behalf — [docs](docs/MCP_SERVER.md) |
@@ -385,6 +420,9 @@ Athena is **free and open source**. You only pay for your AI subscription:
 > Athena works with any model, but governance protocols and multi-step reasoning perform best with frontier models (e.g. Claude Opus 4.6, Gemini 3.1 Pro, GPT-5.3). Start with the free tier to test compatibility with your preferred model.
 >>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 
+> [!TIP]
+> **Save money getting started** *(as of 28 Feb 2026)*. Google offers a [1-month free trial on AI Pro](https://one.google.com/ai) for new subscribers — enough to fully evaluate Athena with frontier-tier Antigravity limits at $0. Alternatively, if someone you know is on a Google AI Pro or Ultra plan, they can add you as a family member — each member gets their own independent Antigravity quota at no extra cost.
+
 ---
 
 ## 📚 Documentation
@@ -410,6 +448,7 @@ Athena is **free and open source**. You only pay for your AI subscription:
 | Layer | Technology |
 |:------|:----------|
 <<<<<<< HEAD
+<<<<<<< HEAD
 | **SDK** | `athena` Python package (v9.2.5) |
 | **Search** | Hybrid RAG — FlashRank reranking + RRF fusion |
 | **Embeddings** | `text-embedding-004` (768-dim) |
@@ -417,6 +456,11 @@ Athena is **free and open source**. You only pay for your AI subscription:
 | **Routing** | CognitiveRouter — adaptive latency by query complexity |
 =======
 | **SDK** | `athena` Python package (v9.2.8) |
+=======
+| **IDE** | Antigravity |
+| **Reasoning Engine** | Gemini 3.1 Pro (High) / Claude Opus 4.6 (Thinking) |
+| **SDK** | `athena` Python package (v9.3.1) |
+>>>>>>> 9f9dbbdcc07c9b8b153d42348c22c4025da2c735
 | **Search** | Hybrid RAG — FlashRank reranking + RRF fusion |
 | **Embeddings** | `text-embedding-004` (768-dim) |
 | **Memory** | Supabase + pgvector / local ChromaDB |
@@ -438,10 +482,14 @@ Athena-Public/
 ├── scripts/                 # Operational scripts (boot, shutdown, launch)
 ├── examples/
 <<<<<<< HEAD
+<<<<<<< HEAD
 │   ├── protocols/           # 120+ starter frameworks (13 categories)
 │   ├── scripts/             # 500+ reference scripts
 =======
 │   ├── protocols/           # 125+ starter frameworks (14 categories)
+=======
+│   ├── protocols/           # 110+ starter frameworks (15 categories)
+>>>>>>> 9f9dbbdcc07c9b8b153d42348c22c4025da2c735
 │   ├── scripts/             # 120+ reference scripts
 >>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 │   └── templates/           # Starter templates (framework, memory bank)
@@ -455,7 +503,13 @@ Athena-Public/
 <summary><strong>📋 Recent Changelog</strong></summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+- **v9.3.1** (Mar 03 2026): Cross-model Audit Fixes — file count sync, Windows section relocation, GitHub Release catch-up (v9.2.7–v9.3.0)
+- **v9.3.0** (Mar 02 2026): Onboarding Friction Audit — dependency restructuring (torch→optional), venv instructions, PEP 668 fix, stale path cleanup, two-tier install
+- **v9.2.9** (Mar 02 2026): Ultrathink v4.1 HITL Bypass — manual Gemini sandbox option, micro-pruned 10% dead skills (100% cluster coverage), broken reference audit
+>>>>>>> 9f9dbbdcc07c9b8b153d42348c22c4025da2c735
 - **v9.2.8** (Feb 27 2026): Skill Template Expansion — 5 starter skill templates across 4 categories for new AG users
 - **v9.2.7** (Feb 26 2026): Risk-proportional Triple-Lock, Tier 0 context summaries, 3 new academic citations
 - **v9.2.6** (Feb 25 2026): Kilo Code + Roo Code IDE integration, `COMPATIBLE_IDES.md`, issue #19 closed

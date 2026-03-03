@@ -9,14 +9,14 @@ version = "9.2.5"
 description = "Athena Bionic OS SDK"
 =======
 name = "athena-agent"
-version = "9.2.7"
+version = "9.3.1"
 description = "Athena Bionic OS — The Linux Distro for AI Agents. Model-agnostic, local-first, sovereign."
 >>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 authors = [
-    { name = "Winston Koh", email = "winstonkoh87@gmail.com" }
+    { name = "Winston Koh" }
 ]
 keywords = [
     "ai-agent", "llm", "cognitive-os", "memory-bank",
@@ -36,16 +36,10 @@ classifiers = [
 ]
 dependencies = [
     "python-dotenv>=1.0.0",
-    "google-generativeai>=0.7.0",
-    "supabase>=2.0.0",
     "requests>=2.31.0",
     "pydantic>=2.0.0",
-    "anthropic>=0.40.0",
-    "dspy-ai>=3.1.3",
-    "flashrank>=0.2.9",
-    "sentence-transformers>=2.2.0",
-    "torch>=2.0.0",
-    "diskcache>=5.6.3"
+    "diskcache>=5.6.3",
+    "rich>=13.0.0",
 ]
 
 [project.scripts]
@@ -58,12 +52,31 @@ Documentation = "https://github.com/winstonkoh87/Athena-Public#readme"
 Changelog = "https://github.com/winstonkoh87/Athena-Public/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
+search = [
+    "google-generativeai>=0.7.0",
+    "sentence-transformers>=2.2.0",
+    "flashrank>=0.2.9",
+    "torch>=2.0.0",
+]
+cloud = [
+    "supabase>=2.0.0",
+]
+full = [
+    "athena-agent[search,cloud]",
+    "google-generativeai>=0.7.0",
+    "supabase>=2.0.0",
+    "anthropic>=0.40.0",
+    "dspy-ai>=3.1.3",
+    "flashrank>=0.2.9",
+    "sentence-transformers>=2.2.0",
+    "torch>=2.0.0",
+]
 dev = [
     "pytest",
     "black",
     "ruff",
     "pipreqs",
-    "pydeps"
+    "pydeps",
 ]
 
 [tool.hatch.build.targets.wheel]

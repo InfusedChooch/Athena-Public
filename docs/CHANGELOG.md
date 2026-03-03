@@ -1,10 +1,14 @@
 # Athena Changelog
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Last Updated**: 24 February 2026
 =======
 > **Last Updated**: 27 February 2026
 >>>>>>> ebc040230f5757d7bbcb9648c718c2878a41a378
+=======
+> **Last Updated**: 03 March 2026
+>>>>>>> 9f9dbbdcc07c9b8b153d42348c22c4025da2c735
 
 This document provides detailed release notes. For the brief summary, see the README changelog.
 
@@ -13,7 +17,71 @@ This document provides detailed release notes. For the brief summary, see the RE
 ---
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+## v9.3.1 (03 March 2026)
+
+**Cross-Model Audit Fixes**: Resolved 4 missing GitHub releases (v9.2.7–v9.3.0), corrected stale file count claims, relocated Windows compatibility section, synced dates.
+
+### Key Changes
+
+- **File Count Correction** (`README.md`): Updated "370+ Markdown" → "350+" (actual: 354) and "230+ Python scripts" → "600+" (actual: 651). Counts drifted after v9.2.9 dead-skill pruning.
+- **Windows Section Relocation** (`README.md`): Moved dangling `## Windows Compatibility` from below the footer into a collapsible `<details>` block under Quickstart.
+- **GitHub Release Sync**: Created v9.3.1 release covering v9.2.7–v9.3.0 changelog summaries.
+- **Date Sync**: Updated README and CHANGELOG dates to 03 March 2026.
+
+---
+
+## v9.3.0 (02 March 2026)
+
+**Onboarding Friction Audit**: Restructured dependencies, added virtual environment instructions, and fixed 6 onboarding blockers for new users.
+
+### Key Changes
+
+- **Dependency Restructuring** (`pyproject.toml`): Moved `torch`, `sentence-transformers`, `flashrank`, `dspy-ai`, `anthropic`, `supabase`, `google-generativeai` from core dependencies to optional groups (`[search]`, `[cloud]`, `[full]`). Default `pip install -e .` now completes in ~30s without downloading 2GB of PyTorch.
+- **Virtual Environment Instructions** (`README.md`, `GETTING_STARTED.md`, `FAQ.md`): Added explicit `python3 -m venv .venv` step to Quickstart. Prevents PEP 668 `externally-managed-environment` errors on macOS Homebrew and Ubuntu 23.04+.
+- **Two-Tier Install Path** (`README.md`): Lightweight install (default) vs `pip install -e ".[full]"` (vector search + reranking).
+- **PEP 668 Troubleshooting** (`FAQ.md`): New troubleshooting entry for the most common install blocker.
+- **Stale Path Fix** (`examples/workflows/start.md`): Replaced hardcoded `file:///Users/[AUTHOR]/...` absolute paths with relative paths.
+- **URL Fix** (`init.py`): Fixed `[AUTHOR]87` placeholder in init output URL.
+- **`requirements-lite.txt`** (NEW): Minimal dependency file for users who want the core framework without ML deps.
+
+### Verification
+
+| Metric | Result |
+|--------|--------|
+| Core install deps | 5 (was 11) ✅ |
+| Install time (default) | ~30s (was 5-10 min) ✅ |
+| PEP 668 addressed | 3 docs ✅ |
+| Stale paths fixed | 3 ✅ |
+
+---
+
+## v9.2.9 (02 March 2026)
+
+**Ultrathink v4.1 HITL Bypass + Micro-Pruning**: Added Human-in-the-Loop manual execution path to `/ultrathink`, pruned 10% dead skills for 100% cognitive cluster coverage, and fixed all broken references.
+
+### Key Changes
+
+- **Ultrathink v4.1**: Added Option B (HITL Manual Sandbox) — users can execute the 4 parallel reasoning tracks directly in the Gemini UI at zero API cost, then paste outputs back.
+- **Micro-Pruning**: Removed `ui-ux-pro-max/` workflow (skill deleted from private repo). Fixed broken `file://` path in `refactor-code.md`.
+- **`generate_skill_index.py`**: Removed dead `sickn33_collection` vendor block (referencing deleted submodule).
+- **Cognitive Cluster Coverage**: Updated from 19/21 (90%) to 19/19 (100%) — all orphan skills eliminated.
+- **Orchestrator v4.1**: Top-level imports, modern type hints (`dict`/`list`/`tuple`), rate-limit retry with 30s backoff, async deadlock fix.
+
+### Verification
+
+| Metric | Result |
+|--------|--------|
+| Broken references fixed | 4 ✅ |
+| Security scans passed | 3/3 ✅ |
+| Cluster coverage | 100% ✅ |
+| Lines removed (net) | -4,192 ✅ |
+
+---
+
+>>>>>>> 9f9dbbdcc07c9b8b153d42348c22c4025da2c735
 ## v9.2.8 (27 February 2026)
 
 **Skill Template Expansion**: Added 5 starter skill templates across 4 categories for new Antigravity users. Skills are copy-paste ready — `cp -r examples/skills/<skill> .agent/skills/`.

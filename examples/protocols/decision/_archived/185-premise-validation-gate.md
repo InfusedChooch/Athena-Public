@@ -86,13 +86,13 @@ Run 5-Question Randy Detection:
 If 4/5 Yes → Randy Dilemma. Don't recommend speaking truth or fighting system ⛔
 ```
 
-### Q6: Limerence/Reality Distortion
+### Q6: Emotional Bias/Reality Distortion
 
 ```text
 "Have you asked the obvious falsifying question?"
 "What would prove you're wrong?"
 
-If avoiding truth → Limerence protecting fantasy. Force reality test first ⛔
+If avoiding truth → Emotional Bias protecting fantasy. Force reality test first ⛔
 ```
 
 ---
@@ -112,7 +112,7 @@ If avoiding truth → Limerence protecting fantasy. Force reality test first ⛔
 | Violation | Presentation | Reality |
 |-----------|--------------|---------|
 | **Jeffrey Trap** | L0-L1 question | L2-L4 root cause |
-| **Limerence** | "How to win them?" | "Have you asked if they're interested?" |
+| **Emotional Bias** | "How to win them?" | "Have you asked if they're interested?" |
 | **Randy** | "How to change system?" | System designed to prevent change |
 | **Form-Substance** | "How to get more of what I'm getting?" | What you're getting increases suffering |
 | **Missing Baseline** | "Why does this keep failing?" | Never observed what success looks like |
@@ -170,7 +170,7 @@ Premise Validation Gate (30-60 seconds)
 □ Q3: Baseline model exists?
 □ Q4: Not Form-Substance trap?
 □ Q5: Not Randy Dilemma?
-□ Q6: Not Limerence distortion?
+□ Q6: Not Emotional Bias distortion?
 ────────────────────────────────────────
 0-1 fail → Proceed with warning
 2+ fail → STOP. Fix premises first.
@@ -183,7 +183,7 @@ Premise Validation Gate (30-60 seconds)
 # protocol #premise-validation #phase-05 #gate #jeffrey-trap #einstein-principle
 
 ## Related Protocols
-- [Protocol 121: Decision Frameworks (MCDA / WEU / Pairwise)](<!-- Private: .agent/skills/protocols/ --> decision/121-mcda-weu-framework.md)
+- [Protocol 121: Decision Frameworks (MCDA / WEU / Pairwise)](<!-- Private: .agent/skills/protocols/ --> decision/121-mcda-eev-framework.md)
 
 - [Protocol 114: Limerent Reality Distortion](<!-- Private: .agent/skills/protocols/ --> psychology/114-limerent-reality-distortion.md)
 - [Protocol 113: Missing Baseline Model](<!-- Private: .agent/skills/protocols/ --> psychology/113-missing-baseline-model.md)
