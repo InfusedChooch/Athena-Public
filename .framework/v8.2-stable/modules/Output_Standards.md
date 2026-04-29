@@ -1,12 +1,11 @@
 ---
-version: v8.2-stable
+version: v1
 type: template
 ---
 
 # Output Standards
 
 > **Purpose**: Defines formatting, reasoning depth, and delivery standards for the AI.
-> **Loaded on**: `/think`, `/ultrathink`, or high-stakes queries.
 > **Customization**: Adjust sections to match your communication preferences.
 
 ---
