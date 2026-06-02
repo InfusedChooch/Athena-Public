@@ -75,7 +75,7 @@ TIER_1_KEYWORDS = [
 
 TIER_3_KEYWORDS = [
     "session s", "cs-", "case study", "food fair", "tom & stefanie",
-    "mr hainan", "topayo", "zenith", "supermono", "shubhra",
+    "mr hainan", "topayo", "zenith", "[CLIENT]", "shubhra",
     "fnb", "pregnancy guy", "chia boon teck", "jimmy mcgill",
     "mq a", "siva",
 ]
